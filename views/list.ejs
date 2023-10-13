@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+
+    <%- include('nav.ejs') %>
+
+    <% for(let i = 0; i < data.length; i++){%>
+    <ul class="flex justify-between items-center border">
+      <li class="basis-2/4"><a href="/view/<%= data[i]._id %>"><%= data[i].title %></li></a>
+      <li class="basis-2/4"><%= data[i].content %></li>
+    </ul>
+    <% } %>
+    
+    <!--? % / %= / %- -->
+    <!-- 
+        %= 이면 코드가 보이는 거고, %만 들어가면 자바스크립트 문법으로 쓸 수 있다.
+        html의 데이터를 그대로 보여줄 것 같으면 %=, 스크립트 코드를 쓸 것 같으면 %
+
+        %- 렌더링 한 것 / %= 그냥 코드만 string으로 작성된 것 
+    -->
+
+    <!--? 서버사이드 렌더링과 클라이언트 사이드 렌더링 -->
+    <!-- 
+        클라이언트 사이트 렌더링은 내 컴퓨터에서 렌더링 되고,
+        
+        서버 사이트 렌더링은 서버에서 렌더링을 전부 해서 보여주는 것.
+        렌더링을 먼저 해서 보내기 때문에 초기 로딩 속도가 느리다.
+     -->
+
+  </body>
+</html>
