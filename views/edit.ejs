@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 데이터 자체는 post로 보내서 put 메소드로 작동하는 원리 -->
+    <form action="/edit?_method=PUT" method="post">
+        <h3>글쓰기</h3>
+        <input value="<%= data._id %>" type="hidden" name="id">
+        <input value="<%= data.title %>" type="text" name="title">
+        <input value="<%= data.content %>" type="text" name="content">
+        <button type="submit">완료</button>
+    </form>
+    <a href="/list">목록</a>
+</body>
+</html>

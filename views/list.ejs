@@ -13,9 +13,12 @@
     <% for(let i = 0; i < data.length; i++){%>
     <ul class="flex justify-between items-center border">
       <li class="basis-2/4"><a href="/view/<%= data[i]._id %>"><%= data[i].title %></li></a>
-      <li class="basis-2/4"><%= data[i].content %></li>
+      <li class="basis-2/4"><%= data[i].content %><a href="/edit/<%=data[i]._id %>">✏</a></li>
+      <li class="basis-2/4"><a href="javascript:showDeleteConfirmMessage('<%=data[i]._id %>')">삭제</a></li>
+      <!-- /delete/<%=data[i]._id %> -->
     </ul>
     <% } %>
+    <a href="/write">글쓰기</a>
     
     <!--? % / %= / %- -->
     <!-- 
@@ -33,5 +36,15 @@
         렌더링을 먼저 해서 보내기 때문에 초기 로딩 속도가 느리다.
      -->
 
+     <script>
+        function showDeleteConfirmMessage(data){
+          let confirmCheck = confirm("정말 삭제 하시겠습니까?")
+          console.log(data)
+
+          if(confirmCheck){
+            window.location.href = '/delete/' + data
+          }
+        }
+     </script>
   </body>
 </html>
